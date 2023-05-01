@@ -1,0 +1,14 @@
+pipeline{
+    agent any 
+    stages{
+        stage("Build"){
+            steps{
+                sh 'sudo su'
+                sh 'docker-compose down'
+                sh 'docker-compose up -d'
+                sh 'docker login --username mogiii --password Smohanraj@123'
+                sh 'docker push mogiii/goals2023:tagname'
+            }
+        }
+    }
+}
