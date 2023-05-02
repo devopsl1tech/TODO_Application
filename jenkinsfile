@@ -3,11 +3,10 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                sh 'sudo su'
-                sh 'docker-compose down'
-                sh 'docker-compose up -d'
-                sh 'docker login --username mogiii --password Smohanraj@123'
-                sh 'docker push mogiii/goals2023:tagname'
+                git 'https://github.com/devopsl1tech/TODO_Application.git'
+                sh ' sudo su '
+                sh ' docker-compose down '
+                sh ' docker-compose up -d '
             }
         }
     }
